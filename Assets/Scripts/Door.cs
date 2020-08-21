@@ -18,11 +18,25 @@ public class Door : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        animator.Play("LeftDoorOpen");
+        if (this.gameObject.name.Contains("Left"))
+        {
+            animator.Play("LeftDoorOpen");
+        }
+        else if (this.gameObject.name.Contains("Right"))
+        {
+            animator.Play("RightDoorOpen");
+        }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        animator.Play("LeftDoorClose");
+        if (this.gameObject.name.Contains("Left"))
+        {
+            animator.Play("LeftDoorClose");
+        }
+        else if (this.gameObject.name.Contains("Right"))
+        {
+            animator.Play("RightDoorClose");
+        }
     }
 }
